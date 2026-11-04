@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- <meta charset="UTF-8">
+    <meta name="viewport" 
+    content="width=device-width, initial-scale=1.0"> -->
+
+     <link rel="stylesheet" href="style.css">
+   
+    <title>ESCAPE HOTEL</title>
+
+</head>
+
+<body>
+
+<section class="hero"> <!-- עוטף את כל מסך הפתיחה באזור הירו נפרד. -->
+    <video class="video-bg" autoplay muted loop playsinline> <!-- מציב את הסרטון כרקע של מסך הפתיחה. -->
+        <source src="videos/HEROVID.mp4" type="video/mp4"> <!-- טוען את קובץ הווידאו מתיקיית videos. -->
+    </video>
+
+    <div class="booking-bar"> <!-- עוטף את כל שדות בחירת התאריכים והאורחים -->
+
+    <div class="booking-field"> <!-- אזור בחירת תאריך הכניסה -->
+        <label for="check-in">CHECK-IN</label> <!-- כותרת שדה תאריך הכניסה -->
+        <input type="date" id="check-in" name="check-in"> <!-- שדה לפתיחת לוח שנה ובחירת תאריך כניסה -->
+    </div> <!-- סוף אזור תאריך הכניסה -->
+
+    <div class="booking-field"> <!-- אזור בחירת תאריך היציאה -->
+        <label for="check-out">CHECK-OUT</label> <!-- כותרת שדה תאריך היציאה -->
+        <input type="date" id="check-out" name="check-out"> <!-- שדה לפתיחת לוח שנה ובחירת תאריך יציאה -->
+    </div> <!-- סוף אזור תאריך היציאה -->
+
+    <div class="booking-field"> <!-- אזור בחירת מספר האורחים -->
+        <label for="guests">GUESTS</label> <!-- כותרת שדה מספר האורחים -->
+        <select id="guests" name="guests"> <!-- תיבת בחירה של מספר האורחים -->
+            <option value="1">1 Guest</option> <!-- אפשרות לאורח אחד -->
+            <option value="2" selected>2 Guests</option> <!-- אפשרות לשני אורחים, שנבחרת כברירת מחדל -->
+            <option value="3">3 Guests</option> <!-- אפשרות לשלושה אורחים -->
+            <option value="4">4 Guests</option> <!-- אפשרות לארבעה אורחים -->
+        </select> <!-- סוף תיבת בחירת האורחים -->
+    </div> <!-- סוף אזור בחירת האורחים -->
+
+    <button type="button" class="availability-button"> <!-- כפתור לבדיקת זמינות החדרים -->
+        CHECK AVAILABILITY <!-- הטקסט שמופיע על הכפתור -->
+    </button> <!-- סוף כפתור בדיקת הזמינות -->
+
+</div> 
+
+<nav class="top-menu"> <!-- שורת הניווט העליונה -->
+    <a href="index.html" class="logo">ESCAPE</a> <!-- לוגו שמוביל לעמוד הבית -->
+
+    <button class="hamburger" type="button"> <!-- כפתור פתיחה וסגירה -->
+        <span></span> <!-- הקו הראשון של ההמבורגר -->
+        <span></span> <!-- הקו השני של ההמבורגר -->
+        <span></span> <!-- הקו השלישי של ההמבורגר -->
+    </button>
+
+    <div class="side-menu"> <!-- הפאנל הנפתח מצד ימין -->
+        <a href="index.html">HOME</a> <!-- קישור לעמוד אודות -->
+        <a href="special-offers.html">SPECIAL OFFERS</a> <!-- קישור למבצעים -->
+        <a href="rooms.html">ROOMS</a> <!-- קישור לחדרים -->
+        <a href="spa-wellness.html">SPA &amp; WELLNESS</a> <!-- קישור לספא -->
+        <a href="gift-card.html">GIFT CARD</a> <!-- קישור לספא -->
+        <a href="contact.html">CONTACT</a> <!-- קישור ליצירת קשר -->
+    </div>
+</nav>
+</section>
+
+<section id="about" class="about-section"> <!-- אזור ה-About כולו -->
+    <div class="about-content"> <!-- מעטפת מרכזית לכל התוכן -->
+
+        <div class="about-row"> <!-- שורה ראשונה: טקסט משמאל ותמונה מימין -->
+            <div class="about-text"> <!-- מעטפת הפסקה הראשונה -->
+                <h2>ABOUT</h2> <!-- כותרת האזור -->
+                <p><span class="soft-highlight">ESCAPE</span> is an urban hotel overlooking the sea and the city. <br>Its name reflects the idea at the heart of the hotel:<br> <span class="soft-highlight">making room for a different kind of experience,</span> one shaped by<br> the surroundings and the freedom to enjoy the city in your own way.</p>
+                <p><span class="soft-highlight">At ESCAPE, the view is never quite the same.</span> <br>The city stretches out below, the sea opens up beyond it, <br>and the rooftop pool offers a front-row seat to both.<br> The hotel is designed to make the most of this setting, <br><span class="soft-highlight">with the landscape remaining part of the experience</span> from<br> the first moments of the morning until the city lights come on at night.</p>
+            </div>
+
+            <div class="about-image"> <!-- מעטפת התמונה העליונה -->
+                <img src="images/about0.jpg" alt="Hotel interior">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="offers-section"> <!-- אזור ההצעות המיוחדות -->
+    <div class="offers-container"> <!-- מיכל מרכזי שמגביל את רוחב התוכן -->
+
+        <h2 class="offers-title">SPECIAL OFFERS</h2> <!-- כותרת ראשית -->
+        <p class="offers-subtitle">TOP 3 OFFERS — LAST CHANCE</p> <!-- כותרת משנה -->
+
+        <div class="offers-grid"> <!-- אזור שלושת הכרטיסים בשורה -->
+
+            <div class="offer-card"> <!-- כרטיס הצעה ראשון -->
+                <img src="images/top1.jpg" alt="Sunset Escape"> <!-- תמונת ההצעה -->
+                <div class="offer-info"> <!-- אזור הטקסט שמתחת לתמונה -->
+                    <h3>SUNSET ESCAPE</h3> <!-- שם החבילה -->
+                    <p>One night in a suite, a couples massage and dinner on the rooftop overlooking the sea at sunset.</p> <!-- תיאור החבילה -->
+                    <span class="offer-discount">20% OFF</span> <!-- אחוז ההנחה -->
+                    <a href="#" class="offer-button">BOOK NOW</a> <!-- כפתור הזמנה -->
+                </div>
+            </div>
+
+            <div class="offer-card"> <!-- כרטיס הצעה שני -->
+                <img src="images/top2.jpg" alt="The Perfect Escape"> <!-- תמונת ההצעה -->
+                <div class="offer-info">
+                    <h3>THE PERFECT ESCAPE</h3>
+                    <p>Two nights at a special rate, daily breakfast and late check-out.</p>
+                    <span class="offer-discount">30% OFF SECOND NIGHT</span>
+                    <a href="#" class="offer-button">BOOK NOW</a>
+                </div>
+            </div>
+
+            <div class="offer-card"> <!-- כרטיס הצעה שלישי -->
+                <img src="images/top3.jpg" alt="Last Minute Escape"> <!-- תמונת ההצעה -->
+                <div class="offer-info">
+                    <h3>LAST MINUTE ESCAPE</h3>
+                    <p>A spontaneous getaway with a special room rate and a complimentary upgrade, subject to availability.</p>
+                    <span class="offer-discount">UP TO 25% OFF</span>
+                    <a href="#" class="offer-button">BOOK NOW</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="stay-section"> <!-- סקשן האירוח והחדרים -->
+    <div class="stay-container"> <!-- מיכל מרכזי -->
+
+        <div class="stay-image"> <!-- תמונת החדר בצד שמאל -->
+            <img src="images/p suite1.jpg" alt="Luxury hotel room">
+        </div>
+
+        <div class="stay-content"> <!-- טקסט וכפתור בצד ימין -->
+            <span class="stay-label">THE ESCAPE EXPERIENCE</span>
+            <h2>YOUR STAY, REDEFINED</h2>
+            <p>
+                Discover a collection of thoughtfully designed rooms and suites,
+                <br>where comfort meets contemporary elegance.<br> From intimate spaces
+                to spacious suites, every detail is designed <br>to make your stay
+                a memorable experience.
+            </p>
+            <a href="rooms.html" class="stay-button">EXPLORE ROOMS</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- אזור חוויות המלון -->
+<section class="experience-section" id="experience">
+
+    <!-- כותרת האזור, באותו סגנון כמו ROOMS -->
+    <div class="experience-heading">
+        <h2>EXPERIENCE</h2>
+    </div>
+
+    <!-- שלושת כרטיסי החוויות -->
+    <div class="experience-grid">
+
+        <!-- כרטיס ספא ורוגע -->
+        <article class="experience-card">
+            <span class="experience-number">01</span>
+            <h3>WELLNESS & SPA</h3>
+            <p>
+                Unwind in a peaceful sanctuary designed
+                to restore balance and elevate your stay.
+            </p>
+            <div class="experience-gallery">
+                <img src="images/spa1.jpg" alt="Spa experience 1">
+                <img src="images/spa2.jpg" alt="Spa experience 2">
+                <img src="images/spa3.jpg" alt="Spa experience 3">
+                <img src="images/spa4.jpg" alt="Spa experience 4">
+                <img src="images/spa5.jpg" alt="Spa experience 5">
+                <img src="images/spa6.jpg" alt="Spa experience 6">
+            </div>
+        </article>
+
+        <!-- כרטיס קולינריה -->
+        <article class="experience-card">
+            <span class="experience-number">02</span>
+            <h3>FINE DINING</h3>
+            <p>
+                Savor exceptional flavors and refined dining
+                in an atmosphere of understated luxury.
+            </p>
+            <div class="experience-gallery">
+                <img src="images/fine1.jpg" alt="Fine dining experience 1">
+                <img src="images/fine2.jpg" alt="Fine dining experience 2">
+                <img src="images/fine3.jpg" alt="Fine dining experience 3">
+                <img src="images/fine4.jpg" alt="Fine dining experience 4">
+                <img src="images/fine5.jpg" alt="Fine dining experience 5">
+                <img src="images/fine6.jpg" alt="Fine dining experience 6">
+            </div>
+        </article>
+
+        <!-- כרטיס ים ועיר -->
+        <article class="experience-card">
+            <span class="experience-number">03</span>
+            <h3>SEA & CITY</h3>
+            <p>
+                Enjoy breathtaking sea views and discover
+                the vibrant city just beyond the hotel.
+            </p>
+            <div class="experience-gallery sea-city-gallery">
+                <img src="images/sea1.jpg" alt="Sea and city view">
+                <img src="images/sea2.jpg" alt="Coastal promenade">
+                <img src="images/sea3.jpg" alt="City skyline by the sea">
+                <img src="images/sea4.jpg" alt="Seaside landscape">
+                <img src="images/sea5.jpg" alt="Luxury waterfront view">
+                <img src="images/sea6.jpg" alt="City and sea at sunset">
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<section class="join-club"> <!-- אזור ההרשמה למועדון הלקוחות -->
+
+    <img src="images/club.jpg" alt="Join our club"> <!-- תמונת הרקע של אזור ההרשמה -->
+
+    <div class="join-club-overlay"> <!-- שכבה שמונחת מעל התמונה ומכילה את תוכן ההרשמה -->
+        <div class="join-club-content"> <!-- עוטף את הכותרת, הטקסט וטופס ההרשמה -->
+
+            <h2>JOIN OUR CLUB</h2> <!-- כותרת אזור ההרשמה -->
+
+            <p>Be the first to discover exclusive offers and special experiences.</p> <!-- משפט הזמנה להצטרפות למועדון -->
+
+            <form class="join-club-form"> <!-- טופס הזנת הפרטים -->
+                <input type="text" name="name" placeholder="YOUR NAME" required> <!-- שדה להזנת שם מלא -->
+                <input type="email" name="email" placeholder="YOUR EMAIL ADDRESS" required> <!-- שדה להזנת כתובת אימייל -->
+                <button type="submit">JOIN NOW</button> <!-- כפתור שליחת טופס ההרשמה -->
+            </form> <!-- סוף טופס ההרשמה -->
+
+        </div> <!-- סוף אזור התוכן -->
+    </div> <!-- סוף שכבת הכיתוב והטופס -->
+
+</section>
+
+
+<footer class="site-footer">
+
+    <div class="footer-top">
+
+        <div class="footer-brand">
+            <a href="#" class="footer-logo">ESCAPE</a>
+            <p class="footer-brand-tagline">
+                A HIGHER PERSPECTIVE ON LUXURY
+            </p>
+            <p class="footer-description">
+                Discover a different perspective on luxury,
+                where the sea meets the city and every detail
+                is considered.
+            </p>
+        </div>
+
+        <div class="footer-column">
+            <h3>THE HOTEL</h3>
+            <a href="#rooms">Rooms & Suites</a>
+            <a href="#experience">Dining & Wellness</a>
+            <a href="#experience">Sea & City</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>CONTACT</h3>
+            <a href="#contact">Reservations</a>
+            <a href="#contact">Guest Relations</a>
+            <a href="#contact">Location & Directions</a>
+        </div>
+
+        <div class="footer-column footer-social">
+            <h3>FOLLOW OUR WORLD</h3>
+            <a href="#" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+            <a href="#" target="_blank" rel="noopener noreferrer">Facebook ↗</a>
+        </div>
+
+    </div>
+
+    <div class="footer-newsletter">
+        <div class="newsletter-text">
+            <h3>A NOTE FROM ESCAPE</h3>
+            <p>
+                Be the first to discover our news,
+                special experiences and selected offers.
+            </p>
+        </div>
+
+        <form class="newsletter-form" action="#" method="post">
+            <label for="newsletter-email">YOUR EMAIL ADDRESS</label>
+            <div class="newsletter-input-row">
+                <input
+                    type="email"
+                    id="newsletter-email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
+                <button type="submit">
+                    →
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 ESCAPE HOTEL. ALL RIGHTS RESERVED.</p>
+        <div class="footer-legal">
+            <a href="#">PRIVACY POLICY</a>
+            <a href="#">ACCESSIBILITY</a>
+        </div>
+    </div>
+
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

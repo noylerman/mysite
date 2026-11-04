@@ -1,0 +1,1659 @@
+
+html, body { /* מסירים את השוליים והריווח שברירת המחדל של הדפדפן מוסיפה לעמוד. */
+    margin: 0; /* מבטל את השוליים החיצוניים של העמוד. */
+    padding: 0;/* מבטל ריווח פנימי חיצוני. */
+}
+
+.hero { /* מגדירים את מסך הפתיחה כאזור עצמאי. */
+    position: relative; /* מאפשר למקם את הסרטון ביחס ל-Hero. */
+    min-height: 100vh; /* נותן למסך הפתיחה גובה של מסך שלם. */
+    overflow: hidden; /* מסתיר חלקי סרטון שיוצאים מגבולות ה-Hero. */
+    isolation: isolate; /* יוצר שכבת רקע נפרדת לתוכן של ה-Hero. */
+}
+
+.hero .video-bg { /* מציבים את הסרטון כרקע בתוך ה-Hero בלבד. */
+    position: absolute; /* ממקמים את הסרטון ביחס ל-Hero במקום למסך כולו. */
+    inset: 0; /* מצמידים את הסרטון לכל קצוות ה-Hero. */
+    width: 100%; /* ממלאים את רוחב אזור ה-Hero. */
+    height: 100%; /* ממלאים את גובה אזור ה-Hero. */
+    object-fit: cover;/* ממלאים את האזור בלי לעוות את הסרטון. */
+    z-index: -1; /* מציבים את הסרטון בשכבת הרקע של ה-Hero. */
+}
+
+html { /* מאפשרים גלילה חלקה לקישורי התפריט. */
+    scroll-behavior: smooth; /* גוללים בהדרגה אל הסקשן שנבחר. */
+}
+
+.booking-bar { /* עיצוב השורה שעוטפת את כל שדות ההזמנה */
+    position: absolute; /* ממקם את שורת ההזמנה ביחס לאזור ההירו */
+    bottom: 35px; /* קובע את המרחק של השורה מהחלק התחתון של ההירו */
+    left: 50%; /* ממקם את נקודת ההתחלה במרכז האופקי של ההירו */
+    transform: translateX(-50%); /* מזיז את השורה לאחור בחצי מרוחבה כדי למרכז אותה */
+    display: flex; /* מסדר את שדות ההזמנה והכפתור בשורה אופקית */
+    align-items: center; /* מיישר את כל האלמנטים במרכז הגובה */
+    justify-content: space-between; /* מפזר את האלמנטים לאורך השורה */
+    width: 95%; /* קובע את רוחב שורת ההזמנה ביחס להירו */
+    max-width: 1100px; /* מגביל את הרוחב המרבי של השורה */
+    padding: 12px 30px; /* מוסיף מרווח פנימי סביב התוכן */
+    box-sizing: border-box; /* כולל את ה-padding בתוך חישוב הרוחב */
+    background: rgba(245, 242, 236, 0.60); /* רקע בהיר עם 85% אטימות */
+    z-index: 10; /* מציב את השורה מעל סרטון הרקע */
+}
+
+.booking-field { /* עיצוב כל אחד משדות ההזמנה */
+    display: flex; /* מסדר את הכותרת ואת שדה הבחירה בטור */
+    flex-direction: column; /* מציב את הכותרת מעל שדה הבחירה */
+    gap: 9px; /* קובע את המרווח בין הכותרת לשדה */
+    flex: 1; /* מאפשר לכל שדה לתפוס חלק יחסי מהרוחב */
+    padding: 0 20px; /* מוסיף מרווח אופקי בתוך כל שדה */
+    border-right: 1px solid rgba(7, 9, 56, 0.2); /* מוסיף קו הפרדה דק בין השדות */
+}
+
+.booking-field label { /* עיצוב הכותרות CHECK-IN, CHECK-OUT ו-GUESTS */
+    color: rgb(7, 9, 56); /* קובע את צבע הכותרת לכחול כהה */
+    font-size: 12px; /* קובע גודל טקסט קטן ועדין */
+    letter-spacing: 2px; /* מוסיף ריווח בין האותיות */
+    font-family: "Gill Sans", "Segoe UI", sans-serif; /* קובע את אותו גופן של התפריט */
+    font-weight: 500;
+}
+
+.booking-field input,
+.booking-field select { /* עיצוב שדות התאריך ותיבת בחירת האורחים */
+    width: 100%; /* גורם לשדה לתפוס את מלוא רוחב האזור שלו */
+    height: 24px; /* קובע גובה אחיד לשדות */
+    padding: 0; /* מבטל מרווח פנימי שעלול להשפיע על היישור */
+    margin: 0; /* מבטל מרווח חיצוני */
+    border: none; /* מסיר את המסגרת הרגילה של השדה */
+    outline: none; /* מסיר מסגרת בעת לחיצה על השדה */
+    background: transparent; /* משאיר את הרקע שקוף */
+    color: rgb(7, 9, 56); /* קובע צבע טקסט כחול כהה */
+    font-family: "Gill Sans", "Segoe UI", sans-serif; /* משתמש באותו גופן של התפריט */
+    font-size: 14px; /* קובע גודל טקסט אחיד */
+    cursor: pointer; /* מציג סמן לחיץ */
+    vertical-align: middle; /* מיישר את השדה ביחס לאלמנטים סמוכים */
+    box-sizing: border-box; /* כולל את המרווחים בחישוב הגובה והרוחב */
+}
+
+.booking-field input[type="date"]::-webkit-calendar-picker-indicator { /* עיצוב אחיד לאייקוני לוח השנה */
+    width: 16px; /* קובע רוחב אחיד לשני האייקונים */
+    height: 16px; /* קובע גובה אחיד לשני האייקונים */
+    padding: 0; /* מבטל מרווח פנימי */
+    margin: 0; /* מבטל מרווח חיצוני */
+    transform: translateY(3px); /* מזיז את האייקון מעט למטה */
+    cursor: pointer; /* מציג סמן לחיץ */
+}
+
+.availability-button { /* עיצוב כפתור בדיקת הזמינות */
+    flex: 1.2; /* מעניק לכפתור מעט יותר רוחב משדות ההזמנה */
+    padding: 12px 20px; /* קובע את המרווח הפנימי של הכפתור */
+    margin-left: 20px; /* מוסיף מרווח בין הכפתור לשדה האורחים */
+    border: 1px solid rgb(7, 9, 56); /* מוסיף מסגרת כחולה כהה ועדינה */
+    background: rgb(7, 9, 56); /* קובע רקע כחול כהה לכפתור */
+    color: white; /* קובע את צבע הטקסט בלבן */
+    font-family: "Gill Sans", "Segoe UI", sans-serif; /* משתמש בגופן הכללי של האתר */
+    font-size: 12px; /* קובע גודל טקסט קטן לכפתור */
+    font-weight: 500;
+    letter-spacing: 2px; /* מוסיף ריווח בין האותיות */
+    cursor: pointer; /* מציג סמן של לחיצה בעת מעבר מעל הכפתור */
+    transition: background 0.3s ease, color 0.3s ease; /* יוצר מעבר הדרגתי בעת שינוי צבעי הכפתור */
+}
+
+.availability-button:hover { /* עיצוב הכפתור בעת מעבר עם העכבר */
+    background: transparent; /* הופך את רקע הכפתור לשקוף */
+    color: rgb(7, 9, 56); /* משנה את צבע הטקסט לכחול כהה */
+}
+
+.top-menu { /* שורת הניווט העליונה */
+    position: absolute; /* ממקם את התפריט מעל סרטון הפתיחה */
+    top: 0; /* מצמיד את התפריט לחלק העליון */
+    left: 0; /* מצמיד את התפריט לצד שמאל */
+    width: 100%; /* נותן לתפריט רוחב מלא */
+    box-sizing: border-box; /* כולל את הריווח בתוך הרוחב */
+    padding: 25px 4%; /* מוסיף רווח מהקצוות */
+    display: flex; /* מסדר את הלוגו והכפתור באותה שורה */
+    justify-content: space-between; /* מפריד בין הלוגו להמבורגר */
+    align-items: center; /* מיישר אותם אנכית */
+    z-index: 20; /* מציג את התפריט מעל הסרטון */
+}
+
+.logo { /* עיצוב שם המותג */
+    color: white; /* צבע הלוגו */
+    text-decoration: none; /* מסיר קו תחתון */
+    font-family: "Trebuchet MS", sans-serif; /* גופן הלוגו */
+    font-size: 36px; /* גודל הלוגו */
+    font-weight: 900; /* עובי הלוגו */
+    letter-spacing: 2px; /* רווח בין האותיות */
+}
+
+.hamburger { /* כפתור ההמבורגר */
+    display: flex; /* מסדר את שלושת הקווים בטור */
+    flex-direction: column; /* מציג את הקווים אחד מתחת לשני */
+    justify-content: space-between; /* מפזר את הקווים באופן אחיד */
+    width: 34px; /* רוחב הכפתור */
+    height: 22px; /* גובה הכפתור */
+    padding: 0; /* מסיר ריווח פנימי */
+    border: none; /* מסיר מסגרת */
+    background: transparent; /* משאיר רקע שקוף */
+    cursor: pointer; /* מציג סמן לחיץ */
+    z-index: 40; /* משאיר את הכפתור מעל הפאנל */
+}
+
+.hamburger span { /* עיצוב שלושת הקווים */
+    display: block; /* הופך כל קו לאלמנט נפרד */
+    width: 100%; /* ממלא את רוחב הכפתור */
+    height: 2.5px; /* עובי הקו */
+    background-color: white; /* צבע הקווים */
+}
+
+.side-menu { /* הפאנל הנפתח */
+    position: fixed; /* מקבע את הפאנל ביחס למסך */
+    top: 0; /* מצמיד אותו לחלק העליון */
+    right: 0; /* מצמיד אותו לצד ימין */
+    width: 23%; /* רוחב קטן מרבע מסך */
+    max-width: 340px; /* מגביל את הרוחב במסכים גדולים */
+    min-width: 240px; /* שומר על רוחב שימושי */
+    height: 100vh; /* גובה מלא של המסך */
+    box-sizing: border-box; /* כולל ריווחים בתוך המידות */
+    padding: 130px 25px 40px; /* מרווח מעל ומתחת לקישורים */
+    display: flex; /* מסדר את הקישורים בטור */
+    flex-direction: column; /* מציג כל קישור בשורה נפרדת */
+    align-items: center; /* ממקם את הקישורים במרכז */
+    gap: 38px; /* מרווח בין הקישורים */
+    background-color: rgba(255, 255, 255, 0.8); /* רקע לבן מעט שקוף */
+    z-index: 30; /* מציג את הפאנל מעל תוכן האתר */
+    transform: translateX(100%); /* מסתיר את הפאנל מחוץ למסך */
+    transition: transform 0.35s ease; /* יוצר פתיחה וסגירה חלקות */
+}
+
+.side-menu.open { /* מצב שבו התפריט פתוח */
+    transform: translateX(0); /* מחזיר את הפאנל לתוך המסך */
+}
+
+.side-menu a { /* עיצוב הקישורים בפאנל */
+    color: rgb(7, 9, 56); /* צבע כחול כהה */
+    text-decoration: none; /* מסיר קו תחתון */
+    font-family: "Gill Sans", "Segoe UI", sans-serif; /* גופן הקישורים */
+    font-size: 18px; /* גודל הטקסט */
+    font-weight: 600;
+    letter-spacing: 2px; /* רווח בין האותיות */
+    text-align: center; /* ממרכז את הטקסט */
+    transition: opacity 0.2s; /* מעבר עדין בריחוף */
+}
+
+.side-menu a:hover { /* מצב ריחוף מעל קישור */
+    opacity: 0.6; /* מחליש מעט את הקישור */
+}
+
+@media (max-width: 600px) { /* התאמה למסכים קטנים */
+    .side-menu { /* הפאנל במסך קטן */
+        width: 78%; /* מגדיל את הפאנל כדי שהקישורים יהיו קריאים */
+        min-width: 0; /* מבטל רוחב מינימלי */
+    }
+}
+
+.about-section {
+    width: 100%;
+    padding: 220px 8% 60px; /* רווח עליון גדול יותר ותחתון קטן יותר */
+    background-color: #f5f2ec;
+    color: rgb(7, 9, 56);
+    box-sizing: border-box;
+}
+
+.about-content {
+    max-width: 1400px; /* רוחב מקסימלי */
+    margin: 0 auto; /* ממרכז את התוכן */
+}
+
+.about-row {
+    display: grid; /* חלוקה לעמודות */
+    grid-template-columns: 1fr 1fr; /* שתי עמודות שוות */
+    align-items: center; /* ממרכז את התוכן לגובה */
+    gap: 60px; /* רווח בין הטקסט לתמונה */
+}
+
+.about-text {
+    padding: 0; /* מבטל רווחים קודמים */
+    transform: translateY(-30px); /* מעלה את הטקסט ב־30 פיקסלים */
+}
+
+.about-text h2 {
+    font-size: 38px; /* גודל הכותרת */
+    font-weight: 400; /* עובי הכותרת */
+    letter-spacing: 5px; /* רווח בין האותיות */
+    margin-bottom: 40px; /* רווח מתחת לכותרת */
+}
+
+.about-text p {
+    font-family: "Gill Sans", "Segoe UI", sans-serif; /* גופן הקישורים */
+    font-size: 16px; /* גודל הטקסט */
+    line-height: 2; /* מרווח בין השורות */
+    color: #070938; /* צבע הפסקאות */
+    margin-bottom: 35px; /* רווח בין הפסקאות */
+}
+.about-text .soft-highlight {
+    font-family: "Gill Sans", "Segoe UI", sans-serif; /* גופן הקישורים */
+    font-weight: 600; /* מדגיש את הביטוי */
+    color: #070938; /* צבע כחול כהה */
+}
+
+.about-image {
+    width: 120%; /* רוחב האזור */
+    margin-left: -15%; /* הזזה שמאלה */
+    aspect-ratio: 1 / 1; /* מסגרת ריבועית */
+    overflow: hidden; /* מסתיר את החלקים שמחוץ לריבוע */
+}
+
+.about-image img {
+    display: block;
+    width: 100%;
+    height: 90%;
+    object-fit: contain; /* ממלא את הריבוע */
+    object-position: center;
+    }
+
+@media (max-width: 600px) { /* התאמות למסכים קטנים */
+    .about-section {
+        padding: 70px 7%; /* הקטנת הרווחים */
+    }
+
+    .about-row {
+        grid-template-columns: 1fr; /* מציג כל שורה בעמודה אחת */
+        gap: 25px; /* רווח בין הטקסט לתמונה */
+    }
+
+    .about-row-reverse .about-image {
+        order: 2; /* התמונה מופיעה אחרי הטקסט במסכים קטנים */
+    }
+
+    .about-row-reverse .about-text {
+        order: 1; /* הטקסט מופיע לפני התמונה במסכים קטנים */
+    }
+
+    .about-text,
+    .about-images {
+        width: 100%; /* הטקסט ואזור התמונות תופסים את כל הרוחב */
+    }
+
+    .about-images {
+        height: 450px; /* הקטנת גובה אזור התמונות בטלפון */
+    }
+}
+
+.offers-section {
+    padding: 50px 8%; /* רווח פנימי מעל ומתחת לסקשן ובצדדים */
+    background-color: #f5f2ec; /* צבע רקע בהיר */
+    text-align: center; /* ממרכז את הכותרות */
+}
+
+.offers-container {
+    max-width: 1400px; /* רוחב מקסימלי לתוכן */
+    margin: 0 auto; /* ממרכז את המיכל */
+}
+
+.offers-title {
+    color: #070938;
+    font-size: 38px; /* גודל הכותרת */
+    font-weight: 400; /* עובי אותיות */
+    letter-spacing: 5px; /* רווח בין האותיות */
+    margin-bottom: 12px; /* רווח מתחת לכותרת */
+}
+
+.offers-subtitle {
+    font-size: 12px; /* גודל כותרת המשנה */
+    letter-spacing: 3px; /* רווח בין האותיות */
+    margin-bottom: 50px; /* רווח בין הכותרת לכרטיסים */
+    color: #777; /* צבע אפור */
+}
+
+.offers-grid {
+    display: grid; /* שימוש בגריד לסידור הכרטיסים */
+    grid-template-columns: repeat(3, 1fr); /* שלוש עמודות שוות */
+    gap: 30px; /* רווח בין הכרטיסים */
+    text-align: left; /* יישור הטקסט בתוך הכרטיסים לשמאל */
+}
+
+.offer-card {
+    background-color: #f5f2ec; /* רקע לכל כרטיס */
+    border: 1px solid rgb(7, 9, 56); /* מסגרת דקה בגוון שמנת-אפור */
+    overflow: hidden; /* מסתיר את החלקים של התמונה שיוצאים מגבולות הכרטיס */
+}
+
+.offer-card img {
+    display: block; /* מבטל רווח מתחת לתמונה */
+    height: 350px; /* קובע את גובה התמונה */
+    width: auto; /* שומר על יחס הממדים המקורי */
+    max-width: none; /* מונע מהתמונה להידחס לרוחב הכרטיס */
+    position: relative;
+    left: 50%; /* ממקם את מרכז התמונה במרכז הכרטיס */
+    transform: translateX(-50%); /* מזיז את התמונה חצי מרוחבה שמאלה */
+}
+
+.offer-info {
+    padding: 28px 25px 32px; /* רווח פנימי מסביב לטקסט */
+}
+
+.offer-info h3 {
+    font-family: "Gill Sans", "Segoe UI", sans-serif; /* גופן הקישורים */
+    color: rgb(7, 9, 56); /* צבע הטקסט */
+    font-size: 19px; /* גודל שם החבילה */
+    font-weight: 500; /* עובי הכותרת */
+    letter-spacing: 2px; /* רווח בין האותיות */
+    margin-bottom: 15px; /* רווח מתחת לשם החבילה */
+}
+
+.offer-info p {
+    font-size: 14px; /* גודל תיאור החבילה */
+    line-height: 1.8; /* מרווח בין שורות */
+    font-family: "Gill Sans", "Segoe UI", sans-serif; /* גופן הקישורים */
+    color: rgb(7, 9, 56); /* צבע הטקסט */
+    min-height: 75px; /* גובה מינימלי אחיד לתיאורים */
+    margin-bottom: 22px; /* רווח מתחת לתיאור */
+}
+
+.offer-discount {
+    display: block; /* מציג את ההנחה בשורה נפרדת */
+    color: rgb(7, 9, 56); /* צבע הטקסט */
+    font-family: "Gill Sans", "Segoe UI", sans-serif; /* גופן הקישורים */
+    font-size: 15px; /* גודל טקסט ההנחה */
+    font-weight: 600; /* מדגיש את ההנחה */
+    letter-spacing: 1px; /* רווח בין האותיות */
+    margin-bottom: 22px; /* רווח בין ההנחה לכפתור */
+}
+
+.offer-button {
+    display: inline-block; /* מאפשר להגדיר מידות ורווחים לכפתור */
+    padding: 13px 28px; /* רווח פנימי בתוך הכפתור */
+    border: 1px solid rgb(7, 9, 56); /* מסגרת כהה */
+    color: rgb(7, 9, 56); /* צבע הטקסט */
+    text-decoration: none; /* מסיר קו תחתון מהקישור */
+    font-size: 11px; /* גודל טקסט הכפתור */
+    font-family: "Gill Sans", "Segoe UI", sans-serif; /* גופן הקישורים */
+    letter-spacing: 2px; /* רווח בין האותיות */
+    transition: 0.3s; /* מעבר הדרגתי באפקט מעבר עכבר */
+}
+
+.offer-button:hover {
+    background-color: rgb(7, 9, 56); /* רקע כהה במעבר עכבר */
+    color: white; /* טקסט לבן במעבר עכבר */
+}
+
+.special-offers-page .offers-section { /* עמוד ההצעות המיוחדות הנפרד שמגיעים אליו מהתפריט */
+    padding-top: 160px; /* מרווח בין התפריט להצעות */
+    padding-bottom: 200px; /* מרווח בין ההצעות לפוטר */
+}
+
+/* GITF CARD PAGE */
+
+.gift-card-grid {
+    grid-template-columns: repeat(6, 1fr); /* מחלק את השורה לשישה חלקים שווים */
+}
+
+.gift-card-grid .offer-card {
+    grid-column: span 2; /* כל כרטיס תופס שני חלקים */
+    overflow: hidden;
+}
+
+.gift-card-grid .offer-card img {
+    display: block;
+    width: 100%;
+    height: 310px;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center;
+    margin: 0;
+    padding: 0;
+}
+
+.gift-card-grid .offer-card:nth-child(4) {
+    grid-column: 2 / span 2; /* הכרטיס הרביעי מתחיל בעמודה השנייה */
+}
+
+.gift-card-grid .offer-card:nth-child(5) {
+    grid-column: 4 / span 2; /* הכרטיס החמישי מתחיל בעמודה הרביעית */
+}
+
+
+/* סקשן האירוח בעמוד הבית */
+
+.stay-section {
+    padding: 170px 8%; /* רווחים מסביב לסקשן */
+    background-color: #f5f2ec; /* רקע שמנת */
+}
+
+.stay-container {
+    display: grid; /* חלוקה לשתי עמודות */
+    grid-template-columns: 1.2fr 0.8fr; /* תמונה רחבה יותר מהטקסט */
+    align-items: center; /* ממרכז את התוכן לגובה */
+    gap: 80px; /* רווח בין התמונה לטקסט */
+    max-width: 1400px; /* רוחב מקסימלי */
+    margin: 0 auto; /* ממרכז את המיכל */
+}
+
+.stay-image {
+    width: 100%; /* רוחב מלא של העמודה */
+    height: 650px; /* גובה המסגרת */
+    /*overflow: hidden; /* מסתיר את החלקים שנחתכים */
+}
+
+.stay-image img {
+    display: block;
+    width: 100%; /* ממלא את רוחב המסגרת */
+    height: 100%; /* ממלא את גובה המסגרת */
+    /*object-fit: cover; /* שומר על הפרופורציות וחותך עודפים */
+    object-position: center; /* חיתוך ממרכז התמונה */
+}
+
+.stay-content {
+    color: #070938; /* צבע הטקסט */
+    text-align: left; /* יישור לשמאל */
+}
+
+.stay-label {
+    display: block; /* מציג את הכיתוב בשורה נפרדת */
+    font-size: 11px; /* גודל קטן */
+    letter-spacing: 3px; /* ריווח בין האותיות */
+    color: #888; /* צבע אפור */
+    margin-bottom: 22px; /* רווח מתחת לכיתוב */
+}
+
+.stay-content h2 {
+    font-size: 34px; /* גודל הכותרת */
+    font-weight: 400; /* עובי אותיות */
+    letter-spacing: 3px; /* ריווח בין האותיות */
+    line-height: 1.4; /* גובה שורה */
+    margin-bottom: 25px; /* רווח מתחת לכותרת */
+}
+
+.stay-content p {
+    font-family: "Gill Sans", "Segoe UI", sans-serif; /* גופן הקישורים */
+    font-size: 16px; /* גודל הפסקה */
+    line-height: 2; /* מרווח בין השורות */
+    color: #070938; /* צבע הטקסט */
+    margin-bottom: 35px; /* רווח לפני הכפתור */
+}
+
+.stay-button {
+    font-family: "Gill Sans", "Segoe UI", sans-serif; /* גופן הקישורים */
+    display: inline-block; /* מאפשר עיצוב של הכפתור */
+    padding: 14px 32px; /* רווח פנימי */
+    border: 1px solid #070938; /* מסגרת כהה */
+    color: #070938; /* צבע הטקסט */
+    text-decoration: none; /* מסיר קו תחתון */
+    font-size: 11px; /* גודל הטקסט */
+    letter-spacing: 2px; /* ריווח בין האותיות */
+    transition: 0.3s; /* מעבר הדרגתי */
+}
+
+.stay-button:hover {
+    background-color: rgb(7, 9, 56); /* רקע כהה במעבר עכבר */
+    color: white; /* טקסט לבן */
+}
+
+/* ROOMS PAGE */
+
+.hero {
+    height: 100vh; /* גובה ההירו יהיה בדיוק גובה המסך */
+    overflow: hidden; /* מונע מהתמונה להתרחב מעבר לגבולות ההירו */
+}
+
+.hero-image {
+    display: block; /* מבטל רווח מתחת לתמונה */
+    width: 100%; /* ממלא את רוחב ההירו */
+    height: 100%; /* ממלא את גובה ההירו */
+    object-fit: cover; /* שומר על הפרופורציות וחותך עודפים */
+    object-position: center; /* ממקם את התמונה במרכז */
+}
+
+.hero-text {
+    position: absolute; /* ממקם את הטקסט מעל התמונה */
+    top: 48%; /* מיקום אנכי במרכז */
+    left: 48.7%; /* מיקום אופקי במרכז */
+    transform: translate(-50%, -50%); /* מרכז את הטקסט בדיוק */
+    width: 90%; /* מגביל את רוחב הטקסט */
+    text-align: center; /* ממרכז את הכותרת */
+    color: white; /* צבע לבן */
+}
+
+.hero-text h1 {
+    font-family: "Gill Sans", "Segoe UI", sans-serif;
+    font-size: 38px; /* גודל הכותרת */
+    font-weight: 600; /* עובי אותיות עדין */
+    letter-spacing: 2px; /* ריווח בין האותיות */
+    line-height: 1.6; /* רווח בין שתי השורות */
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 2); /* צל עדין לשיפור הקריאות */
+}
+
+.rooms-section { /* המעטפת הראשית של אזור החדרים */
+    background-color: #f5f2ec; /* רקע בגוון שמנת עדין */
+    color: rgb(7, 9, 56); /* צבע טקסט כחול כהה */
+    padding: 120px 6%; /* רווח פנימי מעל ומתחת ובצדדים */
+}
+
+/* כותרת אזור החדרים */
+.rooms-heading { /* עיצוב הכותרת הראשית */
+    font-size: 38px; /* גודל הכותרת */
+    font-weight: 400; /* משקל גופן רגיל למראה אלגנטי */
+    letter-spacing: 4px; /* מרווח בין האותיות */
+    text-align: center; /* מיקום הכותרת במרכז */
+    margin: 0 0 120px; /* רווח מתחת לכותרת */
+}
+
+/* רשימת החדרים */
+.rooms-content { /* עוטף את כל כרטיסי החדרים */
+    display: flex; /* מאפשר סידור גמיש */
+    flex-direction: column; /* מציג את החדרים אחד מתחת לשני */
+    gap: 100px; /* מרווח בין כרטיסי החדרים */
+}
+
+/* כרטיס חדר בודד */
+.room-card { /* מסדר את התמונה ואת הטקסט של כל חדר */
+    display: flex; /* מציב תמונה וטקסט זה לצד זה */
+    align-items: center; /* ממרכז אותם אנכית */
+    gap: 70px; /* רווח בין התמונה לטקסט */
+}
+
+.room-gallery { /* עיצוב אזור גלריית התמונות של כל חדר */
+    position: relative; /* מאפשר למקם אלמנטים בתוך הגלריה ביחס למיקום שלה */
+    flex: 3.5; /* קובע את החלק היחסי של הגלריה בתוך חלוקת ה-Flex */
+    min-width: 0; /* מאפשר לגלריה להצטמצם מתחת לרוחב התוכן שלה */
+    height: 700px; /* קובע את גובה הגלריה ל-610 פיקסלים */
+    overflow: hidden; /* מסתיר כל תוכן שחורג מגבולות הגלריה */
+}
+
+.room-image { /* עיצוב התמונה שמוצגת בתוך גלריית החדר */
+    display: block; /* מציג את התמונה כאלמנט בלוק ומונע רווח תחתון של תמונה inline */
+    width: 100%; /* גורם לתמונה לתפוס את מלוא רוחב הגלריה */
+    height: 100%; /* גורם לתמונה לתפוס את מלוא גובה הגלריה */
+    object-fit: cover; /* ממלא את שטח הגלריה בתמונה תוך שמירה על הפרופורציות, גם אם חלק ממנה נחתך */
+    object-position: center; /* ממקם את מרכז התמונה במרכז אזור התצוגה */
+    image-rendering: auto; /* משאיר לדפדפן לבחור את שיטת הצגת התמונה הרגילה */
+}
+
+/* החיצים בגלריה */
+.gallery-arrow { /* עיצוב בסיסי לחיצי התמונות */
+    position: absolute; /* ממקם את החיצים מעל התמונה */
+    top: 50%; /* מציב אותם באמצע הגובה */
+    transform: translateY(-50%); /* ממרכז אותם בדיוק אנכית */
+    z-index: 1; /* מציג אותם מעל התמונה */
+    width: 42px; /* רוחב הכפתור */
+    height: 42px; /* גובה הכפתור */
+    border: none; /* מסיר מסגרת */
+    border-radius: 50%; /* יוצר כפתור עגול */
+    background-color: rgba(255, 255, 255, 0.85); /* רקע לבן מעט שקוף */
+    color: rgb(7, 9, 56); /* צבע החץ */
+    font-size: 24px; /* גודל החץ */
+    cursor: pointer; /* מציג סמן לחיץ */
+}
+
+/* מיקום החץ הקודם */
+.gallery-arrow.prev { /* חץ לתמונה הקודמת */
+    left: 15px; /* מרחק מהקצה השמאלי */
+}
+
+/* מיקום החץ הבא */
+.gallery-arrow.next { /* חץ לתמונה הבאה */
+    right: 15px; /* מרחק מהקצה הימני */
+}
+
+/* אזור הטקסט */
+.rooms-text { /* עוטף את הכותרת, התיאור והכפתור */
+    flex: 1; /* נותן לטקסט מקום לצד התמונה */
+    min-width: 0; /* מונע חריגה מרוחב הכרטיס */
+}
+
+/* כותרת של סוג החדר */
+.rooms-text h3 { /* עיצוב שם החדר */
+    font-size: 27px; /* גודל הכותרת */
+    font-weight: 400; /* משקל גופן רגיל */
+    letter-spacing: 2px; /* מרווח בין האותיות */
+    margin: 0 0 25px; /* רווח מתחת לכותרת */
+}
+
+/* תיאור החדר */
+.rooms-text p { /* עיצוב פסקת התיאור */
+    font-family: "Gill Sans", "Segoe UI", sans-serif;
+    font-size: 16px; /* גודל הטקסט */
+    line-height: 1.9; /* מרווח בין שורות */
+    margin: 0 0 30px; /* רווח מתחת לתיאור */
+}
+
+/* כפתור הזמנה */
+.book-button { /* עיצוב כפתור BOOK NOW */
+    padding: 14px 30px; /* רווח פנימי בכפתור */
+    border: 1px solid rgb(7, 9, 56); /* מסגרת כחולה כהה */
+    background-color: transparent; /* רקע שקוף */
+    color: rgb(7, 9, 56); /* צבע הטקסט */
+    font-size: 12px; /* גודל הטקסט */
+    letter-spacing: 2px; /* מרווח בין האותיות */
+    cursor: pointer; /* מציג סמן לחיץ */
+    transition: background-color 0.3s, color 0.3s; /* מעבר חלק בעת ריחוף */
+}
+
+/* אפקט ריחוף על כפתור ההזמנה */
+.book-button:hover { /* מצב הכפתור כשהעכבר מעליו */
+    background-color: rgb(7, 9, 56); /* רקע כחול כהה */
+    color: #f5f2ec; /* טקסט בגוון שמנת */
+}
+
+/* חלון התמונה המוגדלת */
+.lightbox { /* שכבה שמכסה את המסך בעת פתיחת תמונה */
+    display: none; /* מסתיר את החלון כברירת מחדל */
+    position: fixed; /* מקבע את החלון למסך */
+    inset: 0; /* מותח את החלון לכל שטח המסך */
+    z-index: 1000; /* מציג את החלון מעל שאר האתר */
+    background-color: rgba(0, 0, 0, 0.92); /* רקע שחור כמעט אטום */
+    align-items: center; /* ממרכז את התמונה אנכית */
+    justify-content: center; /* ממרכז את התמונה אופקית */
+}
+
+/* התמונה בתוך החלון המוגדל */
+.lightbox-image { /* עיצוב התמונה הגדולה */
+    max-width: 85%; /* מגביל את רוחב התמונה */
+    max-height: 85vh; /* מגביל את הגובה לגובה המסך */
+    object-fit: contain; /* מציג את התמונה בשלמותה */
+}
+
+/* כפתור סגירת החלון */
+.lightbox-close { /* עיצוב כפתור ה-X */
+    position: absolute; /* ממקם את הכפתור בתוך החלון */
+    top: 25px; /* מרחק מהחלק העליון */
+    right: 35px; /* מרחק מהצד הימני */
+    border: none; /* מסיר מסגרת */
+    background: transparent; /* רקע שקוף */
+    color: white; /* צבע ה-X */
+    font-size: 42px; /* גודל ה-X */
+    cursor: pointer; /* מציג סמן לחיץ */
+}
+
+/* חיצים בחלון המוגדל */
+.lightbox-arrow { /* עיצוב החיצים בחלון הגדול */
+    position: absolute; /* ממקם את החיצים מעל הרקע */
+    top: 50%; /* מציב אותם באמצע הגובה */
+    transform: translateY(-50%); /* ממרכז אותם אנכית */
+    border: none; /* מסיר מסגרת */
+    background: transparent; /* רקע שקוף */
+    color: white; /* צבע החיצים */
+    font-size: 40px; /* גודל החיצים */
+    cursor: pointer; /* מציג סמן לחיץ */
+}
+
+/* מיקום החץ הקודם בחלון המוגדל */
+.lightbox-arrow.prev { /* חץ שמאלה בחלון הגדול */
+    left: 25px; /* מרחק מהקצה השמאלי */
+}
+
+/* מיקום החץ הבא בחלון המוגדל */
+.lightbox-arrow.next { /* חץ ימינה בחלון הגדול */
+    right: 25px; /* מרחק מהקצה הימני */
+}
+
+/* התאמה למסכים צרים */
+@media (max-width: 768px) { /* כללים למסכים ברוחב של עד 768 פיקסלים */
+    .rooms-section { /* אזור החדרים במסך קטן */
+        padding: 60px 6%; /* מקטין את הרווחים מסביב */
+    } /* סוף כלל אזור החדרים */
+    .rooms-heading { /* הכותרת הראשית במסך קטן */
+        font-size: 28px; /* מקטין את הכותרת */
+        margin-bottom: 45px; /* מקטין את הרווח מתחת לכותרת */
+    } /* סוף כלל הכותרת */
+    .rooms-content { /* רשימת החדרים במסך קטן */
+        gap: 65px; /* מקטין את הרווח בין החדרים */
+    } /* סוף כלל רשימת החדרים */
+    .room-card { /* כרטיס חדר במסך קטן */
+        flex-direction: column; /* מציב את התמונה מעל הטקסט */
+        align-items: stretch; /* מותח את האלמנטים לרוחב הזמין */
+        gap: 25px; /* מקטין את הרווח בין התמונה לטקסט */
+    } /* סוף כלל כרטיס החדר */
+    .room-image { /* תמונת החדר במסך קטן */
+        height: 300px; /* מקטין את גובה התמונה */
+    } /* סוף כלל התמונה */
+    .rooms-text h3 { /* כותרת החדר במסך קטן */
+        font-size: 23px; /* מקטין את הכותרת */
+    } /* סוף כלל כותרת החדר */
+    .lightbox-arrow.prev { /* החץ הקודם בחלון הגדול במסך קטן */
+        left: 8px; /* מקרב את החץ לקצה */
+    } /* סוף כלל החץ הקודם */
+    .lightbox-arrow.next { /* החץ הבא בחלון הגדול במסך קטן */
+        right: 8px; /* מקרב את החץ לקצה */
+    } /* סוף כלל החץ הבא */
+} 
+
+/* המעטפת הראשית של אזור החוויות */
+.experience-section {
+    background-color: #f5f2ec;
+    color: rgb(7, 9, 56);
+    padding: 50px 8% 220px; /* ריווחים סביב הסקשן*/
+    box-sizing: border-box;
+}
+
+/* כותרת EXPERIENCE — תואמת לכותרת ROOMS */
+.experience-heading {
+    font-size: 38px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-align: center;
+    margin: 0 0 70px;
+}
+
+/* כותרת EXPERIENCE אם היא נמצאת בתוך h2 ב-HTML */
+.experience-heading h2 {
+    font-size: 38px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-align: center;
+    margin: 0;
+}
+
+/* סידור כרטיסי החוויות אחד מתחת לשני */
+.experience-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    width: 100%;
+}
+
+/* כל כרטיס חוויה בשורה נפרדת */
+.experience-card {
+    width: 100%;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(7, 9, 56, 0.35);
+    padding-top: 28px;
+    text-align: center;
+}
+/* המספר בראש כל כרטיס */
+.experience-number {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    opacity: 0.7;
+    margin-bottom: 28px;
+}
+
+/* כותרות הכרטיסים: ספא, קולינריה וים */
+.experience-card h3 {
+    font-size: 19px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin: 0 0 18px;
+}
+
+/* תיאור החוויות */
+.experience-card p {
+    font-family: "Gill Sans", "Segoe UI", sans-serif;
+    font-size: 15px;
+    line-height: 1.9;
+    margin: 0;
+}
+
+.experience-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    width: calc(100% + 40px);
+    margin: 40px 0 0 -20px;
+}
+
+.experience-gallery img {
+    display: block;
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    object-position: center;
+    box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+    .experience-gallery img {
+        height: 260px;
+    }
+}
+
+/* ============================= */
+/* התאמה למסכים קטנים */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+    /* אזור החדרים */
+    .rooms-section {
+        padding: 60px 6%;
+    }
+
+    /* כותרת ROOMS */
+    .rooms-heading {
+        font-size: 28px;
+        margin-bottom: 45px;
+    }
+
+    /* רשימת החדרים */
+    .rooms-content {
+        gap: 65px;
+    }
+
+    /* כרטיס חדר */
+    .room-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 25px;
+    }
+
+    /* גלריית החדר */
+    .room-gallery {
+        width: 100%;
+        height: 300px;
+    }
+
+    /* כותרת החדר */
+    .rooms-text h3 {
+        font-size: 23px;
+    }
+
+    /* חץ קודם בחלון המוגדל */
+    .lightbox-arrow.prev {
+        left: 8px;
+    }
+
+    /* חץ הבא בחלון המוגדל */
+    .lightbox-arrow.next {
+        right: 8px;
+    }
+
+    /* אזור EXPERIENCE במסכים קטנים */
+    .experience-section {
+        padding: 60px 6%;
+    }
+
+    /* כותרת EXPERIENCE במסכים קטנים */
+    .experience-heading,
+    .experience-heading h2 {
+        font-size: 28px;
+    }
+
+    /* כרטיסי החוויות בטור אחד */
+    .experience-grid {
+        grid-template-columns: 1fr;
+        gap: 38px;
+    }
+
+    /* רווח המספר מעל כותרת הכרטיס */
+    .experience-number {
+        margin-bottom: 18px;
+    }
+}
+
+
+/* SPA & EWLLNESS PAGE */
+
+
+.spa-wellness-page {
+    background-color: #f5f2ec; /* רקע בגוון שמנת */
+}
+
+/* תמונת הפתיחה */
+.spa-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* גובה ההירו יהיה כגובה חלון הדפדפן */
+    overflow: hidden;
+}
+
+.spa-hero img {
+    display: block; /* מבטל רווח שנוצר מתחת לתמונה */
+    position: absolute; /* הצמדת התמונה לגבולות ההירו */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.08); /* הגדלה קלה כדי למלא את האזור */
+}
+
+.spa-hero::after {
+    content: ""; /* יצירת שכבת הצללה מעל התמונה */
+    position: absolute; /* מיקום השכבה ביחס לתמונת הפתיחה */
+    inset: 0; /* מתיחה לכל גבולות האזור */
+    background: rgba(0, 0, 0, 0.25); /* הצללה עדינה לשיפור קריאות הטקסט */
+}
+
+.spa-hero-content {
+    position: absolute; /* מיקום הטקסט מעל התמונה */
+    z-index: 1; /* הצגת הטקסט מעל שכבת ההצללה */
+    top: 52%; /* מיקום באמצע הגובה */
+    left: 50%; /* מיקום באמצע הרוחב */
+    transform: translate(-50%, -50%); /* מרכוז מדויק של הטקסט */
+    text-align: center; /* יישור הטקסט למרכז */
+    color: white; /* צבע טקסט לבן */
+    width: 90%; /* הגבלת רוחב הטקסט */
+}
+
+.spa-hero-content h1 {
+    font-family: "Gill Sans", "Segoe UI", sans-serif;
+    font-size: 60px; /* גודל הכותרת */
+    font-weight: 400; /* גופן דק */
+    letter-spacing: 3px; /* מרווח בין האותיות */
+    margin-bottom: 18px; /* רווח מתחת לכותרת */
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 2); /* צל עדין לשיפור הקריאות */
+}
+
+.spa-hero-content p {
+    font-family: "Gill Sans", "Segoe UI", sans-serif;
+    font-size: 18px; /* גודל משפט הפתיחה */
+    letter-spacing: 2px; /* מרווח בין האותיות */
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 2); /* צל עדין לשיפור הקריאות */
+}
+
+/* אזור פתיחת הגלריה */
+.spa-gallery-section {
+    padding: 110px 10% 100px; /* מרווח פנימי סביב הגלריה */
+}
+
+.spa-intro {
+    text-align: center; /* מרכוז הכותרת והטקסט */
+    max-width: 750px; /* הגבלת רוחב הטקסט */
+    margin: 0 auto 150px; /* מרכוז והוספת רווח מתחת לפתיח */
+}
+
+.spa-intro span,
+.spa-facilities-heading span,
+.spa-booking span {
+    color: #070938;
+    font-size: 12px; /* גודל הכיתוב הקטן */
+    letter-spacing: 3px; /* מרווח בין האותיות */
+}
+
+.spa-intro h2,
+.spa-facilities-heading h2,
+.spa-booking h2 {
+    color:#070938;
+    font-size: 38px; /* גודל הכותרות */
+    font-weight: 300; /* משקל גופן דק */
+    margin: 18px 0; /* מרווח מעל ומתחת לכותרת */
+}
+
+.spa-intro p,
+.spa-facilities-heading p,
+.spa-booking p {
+    font-family: "Gill Sans", "Segoe UI", sans-serif;
+    font-size: 16px; /* גודל הטקסטים שמתחת לכותרות */
+    line-height: 1.6; /* מרווח בין שורות */
+    color: #070938; /* צבע אפור עדין */
+}
+
+/* מבנה הגלריה */
+.spa-gallery {
+    display: flex; /* סידור שורות הגלריה אחת מתחת לשנייה */
+    flex-direction: column; /* כיוון אנכי */
+    gap: 100px; /* מרווח בין זוגות התמונות והטקסטים */
+}
+
+.spa-gallery-row {
+    display: flex; /* הצבת התמונה והטקסט זה לצד זה */
+    align-items: center; /* יישור אנכי של התמונה והטקסט */
+    gap: 85px; /* מרווח בין התמונה לטקסט */
+}
+
+.spa-row-right {
+    flex-direction: row-reverse; /* החלפת הצדדים בין התמונה לטקסט */
+}
+
+.spa-image {
+    flex-shrink: 0; /* מונע מהתמונה להתכווץ */
+    overflow: hidden; /* מסתיר חלקים שחורגים מגבולות התמונה */
+}
+
+.spa-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* התאמה למסגרת תוך חיתוך מסוים */
+}
+
+.spa-image-large {
+    width: 40%; /* רוחב התמונות נשאר ללא שינוי */
+    height: 500px; /* גובה מקוצר */
+}
+
+.spa-image-small {
+    width: 40%; /* רוחב התמונות נשאר ללא שינוי */
+    height: 400px; /* גובה מקוצר */
+}
+
+.spa-description {
+    flex: 1; /* הטקסט מקבל את השטח שנותר בשורה */
+    max-width: 440px; /* הגבלת רוחב הטקסט לקריאות נוחה */
+}
+
+.spa-description span {
+    font-size: 11px; /* גודל מספר הטיפול והקטגוריה */
+    letter-spacing: 2px; /* מרווח בין האותיות */
+    color: #938675; /* צבע חום עדין */
+}
+
+.spa-description h3 {
+    font-size: 28px; /* גודל שם הטיפול */
+    font-weight: 300; /* גופן דק */
+    margin: 18px 0; /* מרווח סביב הכותרת */
+    color: #070938; /* צבע כהה לכותרת */
+}
+
+.spa-description p {
+    font-family: "Gill Sans", "Segoe UI", sans-serif;
+    font-size: 16px; /* גודל תיאור הטיפול */
+    line-height: 2; /* מרווח בין שורות */
+    color: #070938; /* צבע אפור לטקסט */
+}
+
+/* אזור מתקני הספא */
+.spa-facilities {
+    padding: 60px 10% 100px; /* מרווח פנימי סביב אזור המתקנים */
+}
+
+.spa-facilities-heading {
+    text-align: center; /* מרכוז כותרת האזור */
+    max-width: 650px; /* הגבלת רוחב הטקסט */
+    margin: 0 auto 50px; /* מרכוז והוספת רווח מתחת לכותרת */
+}
+
+.spa-facilities-gallery {
+    display: grid; /* הצגת שתי התמונות בגריד */
+    grid-template-columns: 1fr 1fr; /* שתי עמודות שוות */
+    gap: 100px; /* מרווח בין התמונות */
+    max-width: 1100px; /* הגדלת רוחב הגלריה */
+    margin: 0 auto; /* מרכוז הגלריה */
+}
+
+.spa-facility-item img {
+    display: block; /* מבטל רווח מיותר מתחת לתמונה */
+    width: 110%; /* התמונה ממלאת את רוחב העמודה */
+    aspect-ratio: 4 / 5; /* יחס פורטרייט מתון */
+    height: 600px; /* גובה בהתאם ליחס התמונה */
+    /*object-fit: cover; /* התאמה למסגרת תוך חיתוך לפי הצורך */
+}
+
+.spa-facility-description h3 {
+    color: #070938;
+    font-size: 22px; /* גודל שם המתקן */
+    font-weight: 400; /* משקל גופן רגיל */
+    margin: 15px 10 8px; /* מרווח סביב הכותרת */
+}
+
+.spa-facility-description p {
+    font-family: "Gill Sans", "Segoe UI", sans-serif;
+    font-size: 16px; /* גודל תיאור המתקן */
+    line-height: 1.8; /* מרווח בין שורות */
+    color: rgb(7, 9, 56); /* צבע אפור עדין */
+}
+
+/* אזור סיום העמוד */
+.spa-booking {
+    text-align: center; /* מרכוז התוכן */
+    padding: 70px 20px 150px; /* מרווח פנימי באזור הסיום */
+}
+
+.spa-booking-button {
+    display: inline-block; /* מאפשר להגדיר מידות וריווח לכפתור */
+    padding: 15px 30px; /* ריווח פנימי בכפתור */
+    margin-top: 10px; /* מרווח בין המשפט לכפתור */
+    border: 1px solid #070938; /* מסגרת דקה */
+    font-family: "Gill Sans", "Segoe UI", sans-serif;
+    color: #070938; /* צבע הטקסט */
+    text-decoration: none; /* הסרת קו תחתון */
+    font-size: 11px; /* גודל הטקסט בכפתור */
+    font-weight: 500;
+    letter-spacing: 2px; /* מרווח בין האותיות */
+    transition: 0.3s; /* מעבר הדרגתי בעת ריחוף */
+}
+
+.spa-booking-button:hover {
+    background-color: #070938; /* רקע כהה בעת ריחוף */
+    color: white; /* טקסט לבן בעת ריחוף */
+}
+
+/* התאמת העמוד למסכים קטנים */
+@media (max-width: 768px) {
+
+    .spa-hero {
+        height: 480px; /* הקטנת גובה תמונת הפתיחה */
+    }
+
+    .spa-hero-content h1 {
+        font-size: 36px; /* הקטנת הכותרת */
+        letter-spacing: 4px; /* צמצום המרווח בין האותיות */
+    }
+
+    .spa-gallery-section {
+        padding: 75px 7%; /* צמצום המרווחים בצדי העמוד */
+    }
+
+    .spa-gallery {
+        gap: 60px; /* צמצום המרווח בין שורות הגלריה */
+    }
+
+    .spa-gallery-row,
+    .spa-row-right {
+        flex-direction: column; /* הצגת התמונה והטקסט אחד מתחת לשני */
+        align-items: stretch; /* מתיחת התוכן לרוחב הזמין */
+        gap: 22px; /* מרווח בין התמונה לטקסט */
+    }
+
+    .spa-image-large,
+    .spa-image-small {
+        width: 100%; /* התמונות ממלאות את רוחב המסך */
+        height: 280px; /* גובה אחיד לתמונות בנייד */
+    }
+
+    .spa-description {
+        max-width: 100%; /* מאפשר לטקסט להשתמש ברוחב הזמין */
+    }
+
+    .spa-description h3 {
+        font-size: 24px; /* הקטנת כותרות הטיפולים */
+    }
+
+    .spa-facilities-gallery {
+        grid-template-columns: 1fr; /* הצגת המתקנים אחד מתחת לשני */
+    }
+
+    .spa-facility-item img {
+        height: 250px; /* גובה התמונות בנייד */
+    }
+}
+
+
+
+/* התאמת העמוד למסכים קטנים */
+@media (max-width: 768px) {
+
+    .spa-hero {
+        height: 480px; /* מקטין את גובה תמונת הפתיחה בנייד */
+    }
+
+    .spa-hero-content h1 {
+        font-size: 36px; /* מקטין את הכותרת בנייד */
+        letter-spacing: 4px; /* מצמצם את המרווח בין האותיות */
+    }
+
+    .spa-gallery-section {
+        padding: 75px 7%; /* מצמצם את המרווחים בצדי העמוד */
+    }
+
+    .spa-gallery {
+        display: block; /* מציג את התמונות אחת מתחת לשנייה */
+    }
+
+    .spa-gallery-item {
+        margin: 0 0 35px; /* מוסיף מרווח בין התמונות בנייד */
+    }
+
+    .spa-item-large img,
+    .spa-item-small img {
+        height: 280px; /* קובע גובה אחיד לתמונות בגלריה בנייד */
+    }
+
+    .spa-facilities-gallery {
+        grid-template-columns: 1fr; /* מציג את הסאונה והג'קוזי אחד מתחת לשני */
+    }
+
+    .spa-facility-item img {
+        height: 250px; /* קובע גובה לתמונות המתקנים בנייד */
+    }
+}
+
+
+/* עיצוב אזור יצירת הקשר */
+.contact-section { /* מעצב את כל אזור CONTACT */
+    background-color: #f5f2ec; /* שומר על רקע השמנת של האתר */
+    color: rgb(7, 9, 56); /* משתמש בכחול הכהה של האתר */
+    padding: 100px 10%; /* יוצר מרווח פנימי גדול ונעים */
+    box-sizing: border-box; /* מונע מהמרווחים להרחיב את האזור מעבר למסך */
+} /* סוף עיצוב אזור CONTACT */
+
+/* עיצוב כותרת אזור CONTACT */
+.contact-heading { /* מגדיר את מיקום הכותרת והטקסט שמתחתיה */
+    text-align: center; /* ממקם את הטקסט במרכז */
+    margin-bottom: 75px; /* יוצר רווח לפני התוכן שמתחת לכותרת */
+} /* סוף עיצוב אזור הכותרת */
+
+/* עיצוב הכותרת הראשית */
+.contact-heading h2 { /* מעצב את המילה CONTACT */
+    font-size: 38px; /* קובע גודל כותרת כמו בכותרת ROOMS */
+    font-weight: 400; /* שומר על מראה אלגנטי ולא כבד */
+    letter-spacing: 4px; /* מוסיף ריווח בין האותיות */
+    margin: 0 0 22px; /* יוצר רווח מתחת לכותרת */
+} /* סוף עיצוב הכותרת הראשית */
+
+/* עיצוב משפט הפתיחה */
+.contact-heading p { /* מעצב את המשפט שמתחת לכותרת */
+    font-size: 13px; /* שומר על טקסט קטן ועדין */
+    letter-spacing: 2px; /* מעניק לטקסט מראה יוקרתי */
+    line-height: 1.8; /* משפר את המרווח בין השורות */
+    margin: 0; /* מבטל מרווחי ברירת מחדל */
+} /* סוף עיצוב משפט הפתיחה */
+
+/* סידור פרטי הקשר והטופס */
+.contact-content { /* מציב את פרטי הקשר לצד הטופס */
+    display: grid; /* משתמש בפריסת רשת */
+    grid-template-columns: 1fr 1fr; /* מחלק את האזור לשתי עמודות שוות */
+    gap: 90px; /* יוצר מרווח בין העמודות */
+    max-width: 1000px; /* מגביל את רוחב התוכן במסכים גדולים */
+    margin: 0 auto; /* ממקם את התוכן במרכז */
+} /* סוף סידור התוכן */
+
+/* עיצוב פרטי הקשר */
+.contact-details { /* מעצב את העמודה עם פרטי המלון */
+    padding-top: 5px; /* מיישר מעט את התוכן עם הטופס */
+} /* סוף עיצוב פרטי הקשר */
+
+/* עיצוב כותרת פרטי הקשר */
+.contact-details h3 { /* מעצב את הכותרת GET IN TOUCH */
+    font-family: "Gill Sans", "Segoe UI", sans-serif;
+    font-size: 20px; /* קובע גודל כותרת בינוני */
+    font-weight: 400; /* שומר על מראה עדין */
+    letter-spacing: 2px; /* מוסיף ריווח בין האותיות */
+    margin: 0 0 25px; /* יוצר רווח מתחת לכותרת */
+} /* סוף עיצוב כותרת פרטי הקשר */
+
+/* עיצוב פסקאות פרטי הקשר */
+.contact-details p { /* מעצב את הטקסט בעמודת הפרטים */
+    font-family: "Gill Sans", "Segoe UI", sans-serif;
+    font-size: 15px; /* קובע גודל טקסט קריא */
+    line-height: 1.9; /* מגדיל את המרווח בין השורות */
+    margin: 0 0 24px; /* מפריד בין פרטי הקשר */
+} /* סוף עיצוב פסקאות פרטי הקשר */
+
+/* עיצוב תוויות EMAIL, PHONE ו-LOCATION */
+.contact-details span { /* מדגיש את שמות סוגי פרטי הקשר */
+    font-family: "Gill Sans", "Segoe UI", sans-serif;
+    display: inline-block; /* מאפשר להגדיר מרווח מתחת לתווית */
+    font-size: 11px; /* מקטין את התווית ביחס לפרטים */
+    letter-spacing: 2px; /* מרווח אותיות בסגנון האתר */
+    margin-bottom: 5px; /* יוצר רווח בין התווית לפרט */
+    opacity: 0.7; /* מרכך מעט את צבע התווית */
+} /* סוף עיצוב התוויות */
+
+/* סידור שדות טופס יצירת הקשר */
+.contact-form { /* מעצב את מבנה הטופס */
+    display: flex; /* מסדר את שדות הטופס בטור */
+    flex-direction: column; /* מציב כל שדה מתחת לקודמו */
+} /* סוף סידור הטופס */
+
+/* עיצוב תוויות הטופס */
+.contact-form label { /* מעצב את שמות השדות */
+    font-family: "Gill Sans", "Segoe UI", sans-serif;
+    font-size: 12px; /* קובע גודל תווית קטן */
+    font-weight: 500;
+    letter-spacing: 1.5px; /* מוסיף ריווח בין האותיות */
+    margin-bottom: 10px; /* יוצר רווח לפני כל שדה */
+} /* סוף עיצוב תוויות הטופס */
+
+/* עיצוב שדות הטופס */
+.contact-form input, /* בוחר את שדה השם ואת שדה הדוא"ל */
+.contact-form textarea { /* בוחר גם את שדה ההודעה */
+    width: 100%; /* גורם לשדות למלא את רוחב הטופס */
+    box-sizing: border-box; /* כולל את הריווח הפנימי ברוחב השדה */
+    border: none; /* מסיר את מסגרת ברירת המחדל */
+    border-bottom: 1px solid rgba(7, 9, 56, 0.35); /* מוסיף קו תחתון עדין */
+    border-radius: 0; /* שומר על קווים ישרים ונקיים */
+    background: transparent; /* משאיר את רקע השמנת גלוי */
+    color: rgb(7, 9, 56); /* קובע את צבע הטקסט שהמשתמש מקליד */
+    font-family: "Gill Sans", "Segoe UI", sans-serif;
+    font-size: 14px; /* קובע גודל טקסט בשדות */
+    padding: 12px 0; /* מוסיף מרווח בתוך השדות */
+    margin-bottom: 28px; /* מפריד בין השדות */
+    outline-offset: 4px; /* משאיר מרווח לסימון מיקוד המקלדת */
+} /* סוף עיצוב שדות הטופס */
+
+/* עיצוב טקסט הדוגמה בתוך השדות */
+.contact-form input::placeholder, /* בוחר את טקסט הדוגמה בשדות הקלט */
+.contact-form textarea::placeholder { /* בוחר את טקסט הדוגמה בשדה ההודעה */
+    color: rgba(7, 9, 56, 0.55); /* מציג את טקסט הדוגמה בגוון מרוכך */
+} /* סוף עיצוב טקסט הדוגמה */
+
+/* עיצוב שדה ההודעה */
+.contact-form textarea { /* מעצב את אזור כתיבת ההודעה */
+    resize: vertical; /* מאפשר להגדיל את גובה השדה בלבד */
+    min-height: 120px; /* מגדיר גובה התחלתי נוח לכתיבה */
+} /* סוף עיצוב שדה ההודעה */
+
+/* עיצוב כפתור השליחה */
+.contact-button { /* מעצב את כפתור SEND MESSAGE */
+    font-family: "Gill Sans", "Segoe UI", sans-serif;
+    align-self: flex-start; /* מיישר את הכפתור לתחילת הטופס */
+    border: 1px solid rgb(7, 9, 56); /* מוסיף מסגרת כחולה כהה */
+    background-color: rgb(7, 9, 56); /* צובע את הכפתור בכחול כהה */
+    color: #f5f2ec; /* צובע את הטקסט בצבע שמנת */
+    padding: 15px 28px; /* מגדיר את גודל הכפתור */
+    font-size: 11px; /* קובע גודל טקסט קטן בכפתור */
+    letter-spacing: 1.5px; /* מוסיף ריווח בין האותיות */
+    cursor: pointer; /* מציג סמן לחיץ מעל הכפתור */
+    transition: background-color 0.3s, color 0.3s; /* יוצר מעבר צבע חלק בריחוף */
+} /* סוף עיצוב כפתור השליחה */
+
+/* אפקט ריחוף על כפתור השליחה */
+.contact-button:hover { /* מופעל כאשר הסמן נמצא מעל הכפתור */
+    background-color: transparent; /* הופך את רקע הכפתור לשקוף */
+    color: rgb(7, 9, 56); /* מחליף את צבע הטקסט לכחול כהה */
+} /* סוף אפקט הריחוף */
+
+.contact-menu { /* עיצוב שורת הניווט בעמוד CONTACT */
+    position: relative; /* משאיר את הניווט בזרימת העמוד */
+    background-color: transparent; /* מבטל את הפס הלבן מאחורי הניווט */
+}
+
+body:has(.contact-menu) {
+    background-color: #f5f2ec; /* רקע שמנת אחיד לעמוד CONTACT */
+}
+.contact-menu .logo { /* עיצוב הלוגו בעמוד CONTACT */
+    color: rgb(7, 9, 56) !important; /* מוודא שהצבע הכחול גובר על ההגדרות הלבנות בשאר העמודים. משנה את הצבע רק בעמוד זה */
+}
+
+.contact-menu .hamburger span { /* עיצוב קווי ההמבורגר */
+    background-color: rgb(7, 9, 56) !important; 
+}
+
+
+.join-club {
+    position: relative;
+    width: 100%;
+    height: 650px;
+    margin-bottom: 200px;
+    overflow: hidden;
+}
+
+.join-club img { /* עיצוב תמונת הרקע */
+    display: block; /* מונע רווח מיותר מתחת לתמונה */
+    width: 100%; /* גורם לתמונה לתפוס את מלוא רוחב האזור */
+    height: 100%; /* גורם לתמונה לתפוס את מלוא גובה האזור */
+    object-fit: cover; /* ממלא את האזור בתמונה תוך שמירה על הפרופורציות */
+    object-position: center; /* ממקם את מרכז התמונה במרכז האזור */
+}
+
+.join-club-overlay { /* עיצוב השכבה שמונחת מעל התמונה */
+    position: absolute; /* ממקם את השכבה מעל התמונה */
+    inset: 0; /* מותח את השכבה על פני כל שטח התמונה */
+    display: flex; /* מאפשר למרכז את תוכן ההרשמה */
+    justify-content: center; /* ממקם את התוכן במרכז האופקי */
+    align-items: center; /* ממקם את התוכן במרכז האנכי */
+    background: rgba(0, 0, 0, 0.25); /* מוסיף הצללה עדינה כדי שהטקסט יהיה קריא */
+}
+
+.join-club-content { /* עיצוב אזור הכותרת והטופס */
+    width: 80%; /* מגביל את רוחב התוכן */
+    max-width: 700px; /* קובע רוחב מרבי לתוכן */
+    text-align: center; /* ממרכז את כל הטקסט */
+    font-family: "Gill Sans", "Segoe UI", sans-serif; /* משתמש בגופן של התפריט */
+}
+
+.join-club h2 { /* עיצוב הכותרת JOIN OUR CLUB */
+    margin-bottom: 20px; /* יוצר רווח מתחת לכותרת */
+    color: white; /* קובע צבע טקסט לבן */
+    font-size: 46px; /* קובע את גודל הכותרת */
+    font-weight: 400; /* מעניק לכותרת מראה עדין */
+    letter-spacing: 5px; /* מוסיף ריווח בין האותיות */
+}
+
+.join-club p { /* עיצוב משפט ההזמנה להצטרפות */
+    margin-bottom: 35px; /* יוצר רווח בין המשפט לטופס */
+    color: white; /* קובע צבע טקסט לבן */
+    font-size: 17px; /* קובע את גודל הטקסט */
+    letter-spacing: 1px; /* מוסיף ריווח עדין בין האותיות */
+}
+
+.join-club-form { /* עיצוב טופס ההרשמה */
+    display: flex; /* מסדר את השדות והכפתור בשורה אופקית */
+    justify-content: center; /* ממרכז את כל רכיבי הטופס */
+    align-items: center; /* מיישר את הרכיבים לגובה אחיד */
+    gap: 12px; /* יוצר רווח בין השדות לכפתור */
+    width: 100%; /* גורם לטופס לתפוס את מלוא רוחב אזור התוכן */
+}
+
+.join-club-form input { /* עיצוב שדות הזנת השם והאימייל */
+    flex: 1; /* מאפשר לשדות לתפוס מקום שווה בשורה */
+    min-width: 0; /* מאפשר לשדות להצטמצם בהתאם לרוחב הזמין */
+    height: 50px; /* קובע גובה אחיד לשדות */
+    padding: 0 15px; /* מוסיף מרווח פנימי בצדי השדות */
+    box-sizing: border-box; /* כולל את המרווחים בחישוב הגודל */
+    border: 1px solid white; /* מוסיף מסגרת לבנה */
+    background: rgba(255, 255, 255, 0.15); /* יוצר רקע לבן מעט שקוף */
+    color: white; /* קובע צבע טקסט לבן */
+    font-family: "Gill Sans", "Segoe UI", sans-serif; /* משתמש בגופן של התפריט */
+    font-size: 13px; /* קובע גודל טקסט */
+    letter-spacing: 1px; /* מוסיף ריווח בין האותיות */
+}
+
+.join-club-form input::placeholder { /* עיצוב הטקסט שמופיע לפני הזנת הפרטים */
+    color: white; /* קובע צבע לבן לטקסט ההנחיה */
+    opacity: 1; /* שומר על נראות מלאה של הטקסט */
+}
+
+.join-club-form button { /* עיצוב כפתור ההרשמה */
+    height: 50px; /* קובע גובה זהה לשדות */
+    padding: 0 25px; /* קובע מרווח פנימי בצדי הכפתור */
+    border: 1px solid white; /* מוסיף מסגרת לבנה */
+    background: white; /* קובע רקע לבן */
+    color: rgb(7, 9, 56); /* קובע צבע טקסט כחול כהה */
+    font-family: "Gill Sans", "Segoe UI", sans-serif; /* משתמש בגופן של התפריט */
+    font-size: 12px; /* קובע גודל טקסט */
+    font-weight: 500;
+    letter-spacing: 2px; /* מוסיף ריווח בין האותיות */
+    cursor: pointer; /* מציג סמן לחיץ */
+    transition: background 0.3s ease, color 0.3s ease; /* יוצר מעבר הדרגתי בצבעים */
+}
+
+.join-club-form button:hover { /* עיצוב הכפתור בעת מעבר עם העכבר */
+    background: rgb(7, 9, 56);; /* הופך את רקע הכפתור לשקוף */
+    color: white; /* משנה את צבע הטקסט ללבן */
+}
+
+/* Main footer columns */
+.footer-top {
+    display: grid;
+    grid-template-columns: 4.05fr 1.15fr 1.15fr 1.15fr;
+    gap: 45px;
+    padding-bottom: 50px;
+}
+
+/* Brand */
+.footer-brand {
+    max-width: 300px;
+}
+
+.footer-logo {
+    display: inline-block;
+    color: #f5f2ec;
+    text-decoration: none;
+    font-family: "Gill Sans", "Segoe UI", sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: 5px;
+}
+
+.footer-brand-tagline {
+    font-family: "Gill Sans", "Segoe UI", sans-serif;
+    font-size: 9px;
+    letter-spacing: 1.8px;
+    line-height: 1.8;
+    margin: 12px 0 25px;
+}
+
+.footer-description {
+    font-family: "Gill Sans", "Segoe UI", sans-serif;
+    color: rgba(245, 242, 236, 0.75);
+    font-size: 13px;
+    line-height: 1.9;
+    margin: 0;
+    width: 110%; /* הרחבת אזור הטקסט כדי להכניס את המילה לשורה השנייה */
+}
+
+/* Footer columns */
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 17px;
+}
+
+.footer-column h3,
+.newsletter-text h3 {
+    font-family: "Gill Sans", "Segoe UI", sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin: 8px 0 10px;
+}
+
+.footer-column a,
+.footer-legal a {
+    font-family: "Gill Sans", "Segoe UI", sans-serif;
+    color: rgba(245, 242, 236, 0.75);
+    font-size: 12px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-column a:hover,
+.footer-legal a:hover {
+    color: #ffffff;
+}
+
+/* Newsletter section */
+.footer-newsletter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 50px;
+    border-top: 1px solid rgba(245, 242, 236, 0.25);
+    /*border-bottom: 1px solid rgba(245, 242, 236, 0.25); */
+    padding: 35px 0;
+}
+
+.newsletter-text h3 {
+    font-family: "Gill Sans", "Segoe UI", sans-serif;
+    margin-top: 0;
+}
+
+.newsletter-text p {
+    font-family: "Gill Sans", "Segoe UI", sans-serif;
+    color: rgba(245, 242, 236, 0.75);
+    font-size: 13px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.newsletter-form label {
+    font-family: "Gill Sans", "Segoe UI", sans-serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+.newsletter-input-row {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(245, 242, 236, 0.65); 
+}
+
+.newsletter-input-row input {
+    flex: 1;
+    min-width: 0;
+    background: transparent;
+    border: none;
+    outline-offset: 4px;
+    color: #f5f2ec;
+    font-family: "Gill Sans", "Segoe UI", sans-serif;
+    font-size: 13px;
+    padding: 14px 0;
+}
+
+.newsletter-input-row input::placeholder {
+    color: rgba(245, 242, 236, 0.55);
+}
+
+.newsletter-input-row button {
+    border: none;
+    background: transparent;
+    color: #f5f2ec;
+    font-size: 25px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+/* Bottom row */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-top: 25px;
+}
+
+.footer-bottom p {
+    font-family: "Gill Sans", "Segoe UI", sans-serif;
+    color: rgba(245, 242, 236, 0.65);
+    font-size: 9px;
+    letter-spacing: 1.2px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.site-footer { /* עיצוב הרקע והמרווחים של הפוטר */
+    background-color: rgb(7, 9, 56); /* קובע רקע כחול כהה */
+    color: #f5f2ec; /* קובע צבע טקסט בהיר */
+    padding: 60px 5% 25px; /* מוסיף מרווח של 60 פיקסלים למעלה, 5% בצדדים ו-25 פיקסלים למטה */
+    box-sizing: border-box; /* כולל את המרווחים בחישוב רוחב הפוטר */
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+    .footer-top {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 40px 30px;
+    }
+
+    .footer-newsletter {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .site-footer {
+        padding: 50px 6% 22px;
+    }
+
+    .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px 20px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+        max-width: 100%;
+    }
+
+    .footer-newsletter {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .footer-legal {
+        gap: 18px;
+    }
+}

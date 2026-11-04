@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESCAPE HOTEL</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section class="hero"> <!-- עוטף את כל מסך הפתיחה באזור הירו נפרד. -->
+   <!-- <video class="video-bg" autoplay muted loop playsinline> <!-- מציב את הסרטון כרקע של מסך הפתיחה. -->
+      <!--  <source src="videos/infinity-pool.mp4" type="video/mp4"> <!-- טוען את קובץ הווידאו מתיקיית videos. -->
+   <!-- </video> -->
+
+   <img src="images/about2.jpg" alt="Luxury hotel room" class="hero-image">
+   <div class="hero-text"> <!-- טקסט מעל התמונה -->
+        <h1>YOUR PRIVATE ESCAPE BEGINS HERE</h1> <!-- כותרת ההירו -->
+    </div>
+
+
+<nav class="top-menu"> <!-- שורת הניווט העליונה -->
+    <a href="index.html" class="logo">ESCAPE</a> <!-- לוגו שמוביל לעמוד הבית -->
+
+    <button class="hamburger" type="button"> <!-- כפתור פתיחה וסגירה -->
+        <span></span> <!-- הקו הראשון של ההמבורגר -->
+        <span></span> <!-- הקו השני של ההמבורגר -->
+        <span></span> <!-- הקו השלישי של ההמבורגר -->
+    </button>
+
+    <div class="side-menu"> <!-- הפאנל הנפתח מצד ימין -->
+        <a href="index.html">HOME</a> <!-- קישור לעמוד אודות -->
+        <a href="special-offers.html">SPECIAL OFFERS</a> <!-- קישור למבצעים -->
+        <a href="rooms.html">ROOMS</a> <!-- קישור לחדרים -->
+        <a href="spa-wellness.html">SPA &amp; WELLNESS</a> <!-- קישור לספא -->
+        <a href="gift-card.html">GIFT CARD</a> <!-- קישור לספא -->
+        <a href="contact.html">CONTACT</a> <!-- קישור ליצירת קשר -->
+    </div>
+</nav>
+</section>
+
+    <section id="rooms" class="rooms-section"> <!-- אזור החדרים באתר -->
+    <h2 class="rooms-heading">ROOMS</h2> <!-- כותרת ראשית לאזור החדרים -->
+
+    <div class="rooms-content"> <!-- עוטף את ארבעת כרטיסי החדרים -->
+
+        <article class="room-card"> <!-- כרטיס החדר הראשון -->
+            <div class="room-gallery" data-room="0"> <!-- גלריית התמונות של החדר הראשון -->
+                <button class="gallery-arrow prev">←</button> <!-- כפתור לתמונה הקודמת -->
+                <img class="room-image" src="images/classic room1.jpg" alt="Deluxe Room"> <!-- התמונה הראשונה -->
+                <button class="gallery-arrow next">→</button> <!-- כפתור לתמונה הבאה -->
+            </div> <!-- סוף גלריית החדר הראשון -->
+            <div class="rooms-text"> <!-- אזור הטקסט של החדר הראשון -->
+                <h3>DELUXE ROOM</h3> <!-- שם החדר -->
+                <p>A refined retreat above the city, featuring contemporary design, elegant details, and beautiful skyline views.</p> <!-- תיאור החדר -->
+                <button class="book-button">BOOK NOW</button> <!-- כפתור הזמנת החדר -->
+            </div> <!-- סוף הטקסט של החדר הראשון -->
+        </article> <!-- סוף כרטיס החדר הראשון -->
+
+        <article class="room-card"> <!-- כרטיס החדר השני -->
+            <div class="room-gallery" data-room="1"> <!-- גלריית התמונות של החדר השני -->
+                <button class="gallery-arrow prev">←</button> <!-- כפתור לתמונה הקודמת -->
+                <img class="room-image" src="images/exe room1.jpg" alt="Executive Room"> <!-- התמונה הראשונה -->
+                <button class="gallery-arrow next">→</button> <!-- כפתור לתמונה הבאה -->
+            </div> <!-- סוף גלריית החדר השני -->
+            <div class="rooms-text"> <!-- אזור הטקסט של החדר השני -->
+                <h3>EXECUTIVE ROOM</h3> <!-- שם החדר -->
+                <p>Spacious comfort meets understated luxury, with carefully selected finishes and a fresh perspective on the city.</p> <!-- תיאור החדר -->
+                <button class="book-button">BOOK NOW</button> <!-- כפתור הזמנת החדר -->
+            </div> <!-- סוף הטקסט של החדר השני -->
+        </article> <!-- סוף כרטיס החדר השני -->
+
+        <article class="room-card"> <!-- כרטיס החדר השלישי -->
+            <div class="room-gallery" data-room="2"> <!-- גלריית התמונות של החדר השלישי -->
+                <button class="gallery-arrow prev">←</button> <!-- כפתור לתמונה הקודמת -->
+                <img class="room-image" src="images/j suite1.jpg" alt="Junior Suite"> <!-- התמונה הראשונה -->
+                <button class="gallery-arrow next">→</button> <!-- כפתור לתמונה הבאה -->
+            </div> <!-- סוף גלריית החדר השלישי -->
+            <div class="rooms-text"> <!-- אזור הטקסט של החדר השלישי -->
+                <h3>JUNIOR SUITE</h3> <!-- שם החדר -->
+                <p>A generous suite designed for relaxation, combining a sophisticated atmosphere with room to unwind.</p> <!-- תיאור החדר -->
+                <button class="book-button">BOOK NOW</button> <!-- כפתור הזמנת החדר -->
+            </div> <!-- סוף הטקסט של החדר השלישי -->
+        </article> <!-- סוף כרטיס החדר השלישי -->
+
+        <article class="room-card"> <!-- כרטיס החדר הרביעי -->
+            <div class="room-gallery" data-room="3"> <!-- גלריית התמונות של החדר הרביעי -->
+                <button class="gallery-arrow prev">←</button> <!-- כפתור לתמונה הקודמת -->
+                <img class="room-image" src="images/p suite1.jpg" alt="Presidential Suite"> <!-- התמונה הראשונה -->
+                <button class="gallery-arrow next">→</button> <!-- כפתור לתמונה הבאה -->
+            </div> <!-- סוף גלריית החדר הרביעי -->
+            <div class="rooms-text"> <!-- אזור הטקסט של החדר הרביעי -->
+                <h3>PRESIDENTIAL SUITE</h3> <!-- שם החדר -->
+                <p>The ultimate urban escape, with elevated design, exceptional space, and impressive views across the skyline.</p> <!-- תיאור החדר -->
+                <button class="book-button">BOOK NOW</button> <!-- כפתור הזמנת החדר -->
+            </div> <!-- סוף הטקסט של החדר הרביעי -->
+        </article> <!-- סוף כרטיס החדר הרביעי -->
+
+    </div> <!-- סוף העוטף של ארבעת החדרים -->
+
+    <div class="lightbox" id="room-lightbox"> <!-- חלון להצגת תמונה מוגדלת -->
+        <button class="lightbox-close">×</button> <!-- כפתור לסגירת החלון -->
+        <button class="lightbox-arrow prev">←</button> <!-- מעבר לתמונה הקודמת בחלון הגדול -->
+        <img class="lightbox-image" src="" alt="Room image enlarged"> <!-- התמונה המוגדלת -->
+        <button class="lightbox-arrow next">→</button> <!-- מעבר לתמונה הבאה בחלון הגדול -->
+    </div> <!-- סוף חלון התמונה המוגדלת -->
+
+</section>
+
+<footer class="site-footer">
+
+    <div class="footer-top">
+
+        <div class="footer-brand">
+            <a href="#" class="footer-logo">ESCAPE</a>
+            <p class="footer-brand-tagline">
+                A HIGHER PERSPECTIVE ON LUXURY
+            </p>
+            <p class="footer-description">
+                Discover a different perspective on luxury,
+                where the sea meets the city and every detail
+                is considered.
+            </p>
+        </div>
+
+        <div class="footer-column">
+            <h3>THE HOTEL</h3>
+            <a href="#rooms">Rooms & Suites</a>
+            <a href="#experience">Dining & Wellness</a>
+            <a href="#experience">Sea & City</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>CONTACT</h3>
+            <a href="#contact">Reservations</a>
+            <a href="#contact">Guest Relations</a>
+            <a href="#contact">Location & Directions</a>
+        </div>
+
+        <div class="footer-column footer-social">
+            <h3>FOLLOW OUR WORLD</h3>
+            <a href="#" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+            <a href="#" target="_blank" rel="noopener noreferrer">Facebook ↗</a>
+        </div>
+
+    </div>
+
+    <div class="footer-newsletter">
+        <div class="newsletter-text">
+            <h3>A NOTE FROM ESCAPE</h3>
+            <p>
+                Be the first to discover our news,
+                special experiences and selected offers.
+            </p>
+        </div>
+
+        <form class="newsletter-form" action="#" method="post">
+            <label for="newsletter-email">YOUR EMAIL ADDRESS</label>
+            <div class="newsletter-input-row">
+                <input
+                    type="email"
+                    id="newsletter-email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
+                <button type="submit">
+                    →
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 ESCAPE HOTEL. ALL RIGHTS RESERVED.</p>
+        <div class="footer-legal">
+            <a href="#">PRIVACY POLICY</a>
+            <a href="#">ACCESSIBILITY</a>
+        </div>
+    </div>
+
+</footer>
+    
+<script src="script.js"></script>
+</body>
+</html>
